@@ -5,15 +5,13 @@ class Figure(ABC):
     def __init__(self, name):
         self.name = name
 
-    @abstractmethod
     def get_area(self):
         """Функция вычисляет площадь фигуры"""
-        pass
+        raise NotImplementedError("Use get_area to calculate figure area")
 
-    @abstractmethod
     def get_perimetr(self):
         """Функция вычисляет периметр фигуры"""
-        pass
+        raise NotImplementedError("Use get_perimetr to calculate figure perimetr")
 
     def add_area(self, other_figure):
         """Функция вычисляет сумму периметров двух фигур"""

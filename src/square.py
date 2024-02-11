@@ -1,13 +1,12 @@
-from figure import Figure
+from rectangle import Rectangle
 from rectangle import rectangle
 
 
-class Square(Figure):
+class Square(Rectangle):
     def __init__(self, side_a):
-        super().__init__(Square.__name__)
         if side_a <= 0:
             raise ValueError("нельзя создать квадрат")
-        self.side_a = side_a
+        super().__init__(side_a, side_a)
 
     def get_area(self):
         return self.side_a * self.side_a

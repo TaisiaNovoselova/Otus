@@ -1,6 +1,6 @@
 import math
-from figure import Figure
-from triangle import triangle
+from src.figure import Figure
+from src.triangle import triangle
 
 
 class Circle(Figure):
@@ -19,5 +19,5 @@ class Circle(Figure):
         return area
 
 
-circle = Circle(5)
+circle = Circle(4)
 circle.add_area(triangle)

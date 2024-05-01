@@ -1,6 +1,6 @@
 import math
-from figure import Figure
-from square import square
+from src.figure import Figure
+from src.square import square
 
 
 class Triangle(Figure):
@@ -20,10 +20,10 @@ class Triangle(Figure):
         return perimetr
 
     def get_area(self):
-        per = Triangle.get_perimetr(triangle) / 2
+        per = Triangle.get_perimetr(self) / 2
         area = math.sqrt(per * (per - self.side_a) * (per - self.side_b) * (per - self.side_c))
         return area
 
 
-triangle = Triangle(5, 6, 10)
+triangle = Triangle(5, 3, 4)
 triangle.add_area(square)

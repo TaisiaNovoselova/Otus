@@ -1,5 +1,4 @@
-from figure import Figure
-from circle import circle
+from src.figure import Figure
 
 
 class Rectangle(Figure):
@@ -18,4 +17,6 @@ class Rectangle(Figure):
 
 
 rectangle = Rectangle(4, 6)
-rectangle.add_area(circle)
+
+
+

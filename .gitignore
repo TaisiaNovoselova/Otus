@@ -162,3 +162,5 @@ cython_debug/
 #files
 files/books.csv
 files/users.json
+
+geckodriver.log

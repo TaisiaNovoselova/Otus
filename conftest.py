@@ -1,4 +1,8 @@
 import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.firefox.options import Options as FFOptions
+from selenium.webdriver.firefox.service import Service as FFService
 
 
 @pytest.fixture()
@@ -153,3 +157,29 @@ def get_sum_area_circle_triangle():
             raise AssertionError("Only int or float")
 
     yield _wrapper
+
+
+def pytest_addoption(parser):
+    parser.addoption("--browser", default="chrome", help="browser to run tests")
+    parser.addoption("--base_url", action="store", default="http://192.168.50.34:8081/", help="URL for testing")
+
+
+@pytest.fixture
+def browser(request):
+    browser_name = request.config.getoption("--browser")
+    url = request.config.getoption("--base_url")
+
+    if browser_name == 'chrome':
+        driver = webdriver.Chrome(service=ChromeService())
+    elif browser_name == 'firefox':
+        driver = webdriver.Firefox(options=FFOptions(), service=FFService())
+    else:
+        driver = webdriver.Safari()
+
+    request.addfinalizer(driver.close)
+
+    driver.get(url)
+    driver.url = url
+
+    return driver
+

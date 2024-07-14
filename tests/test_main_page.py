@@ -37,6 +37,3 @@ def test_change_currency(browser):
     convert_dropdown.click()
     good_currency = WebDriverWait(browser, 1).until(EC.presence_of_all_elements_located(MainPage.CURRENT_CURRENCY))
     assert "£" in good_currency[0].text
-
-
-

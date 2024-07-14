@@ -182,4 +182,3 @@ def browser(request):
     driver.url = url
 
     return driver
-
